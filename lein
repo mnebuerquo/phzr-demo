@@ -1,0 +1,12 @@
+#!/bin/sh
+
+WORKING="/usr/src/app"
+
+docker run \
+	-it \
+	-v "$(pwd):${WORKING}" \
+	-w "${WORKING}" \
+	-p "3449:3449" \
+	clojure:alpine \
+	"/usr/local/bin/lein" \
+	"$@"
